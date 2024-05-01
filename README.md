@@ -7,3 +7,5 @@ create idiomatic web applications.
 [Ring]: https://github.com/ring-clojure/ring
 
 ## Example projects
+
+- WebSocket Chat
