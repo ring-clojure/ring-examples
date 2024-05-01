@@ -7,4 +7,6 @@
   org.slf4j/slf4j-simple {:mvn/version "2.0.13"}}
  :paths ["src"]
  :aliases
- {:server {:main-opts ["-m" "ring.example.websocket-chat"]}}}
+ {:server
+  {:exec-fn ring.example.websocket-chat/run-server
+   :exec-args {:port 8080}}}}

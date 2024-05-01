@@ -6,5 +6,5 @@
    :headers {"Content-Type" "text/html"}
    :body "<h1>Hello World</h1>"})
 
-(defn -main [port]
-  (adapter/run-jetty handler {:port (Integer/parseInt port)}))
+(defn run-server [options]
+  (adapter/run-jetty handler options))
