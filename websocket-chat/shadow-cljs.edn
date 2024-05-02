@@ -3,4 +3,4 @@
  {:client {:target :browser
            :output-dir "target/assets/public/js"
            :asset-path "/js"
-           :modules {:main {:entries [ring.example.chat.client]}}}}}
+           :modules {:main {:init-fn ring.example.chat.client/init}}}}}
