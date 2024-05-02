@@ -10,3 +10,6 @@ pom.xml.asc
 /.nrepl-port
 /.cpcache
 /.clj-kondo
+/.shadow-cljs
+/node_modules
+/resources/public/js
