@@ -1,4 +1,4 @@
-(ns ring.example.websocket-chat
+(ns ring.example.chat.server
   (:require [reitit.ring :as rr]
             [ring.adapter.jetty :as adapter]))
 

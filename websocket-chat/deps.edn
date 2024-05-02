@@ -9,5 +9,5 @@
  :paths ["resources" "src"]
  :aliases
  {:server
-  {:exec-fn ring.example.websocket-chat/run-server
+  {:exec-fn ring.example.chat.server/run-server
    :exec-args {:port 8080}}}}
