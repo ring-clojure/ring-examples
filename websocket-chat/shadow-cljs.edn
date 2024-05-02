@@ -2,6 +2,6 @@
  :source-paths ["src"]
  :builds
  {:app {:target :browser
-        :output-dir "resources/public/js"
+        :output-dir "target/assets/public/js"
         :asset-path "/js"
         :modules {:main {:entries [ring.example.chat.client]}}}}}

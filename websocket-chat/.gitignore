@@ -12,4 +12,3 @@ pom.xml.asc
 /.clj-kondo
 /.shadow-cljs
 /node_modules
-/resources/public/js
