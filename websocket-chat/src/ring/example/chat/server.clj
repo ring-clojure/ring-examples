@@ -1,18 +1,23 @@
 (ns ring.example.chat.server
-  (:require [reitit.ring :as rr]
-            [ring.adapter.jetty :as adapter]))
+  (:require [clojure.core.async :as a :refer [<! >!]]
+            [reitit.ring :as rr]
+            [ring.adapter.jetty :as adapter]
+            [ring.websocket.async :as wsa]))
 
-(defn chat-handler [_request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "<h1>Hello World</h1>"})
+(defn make-chat-handler []
+  (let [writer  (a/chan)
+        readers (a/mult writer)]
+    (fn handler [_request]
+      (wsa/go-websocket [in out]
+        (a/tap readers out)
+        (a/pipe in writer false)))))
 
-(def app-handler
+(defn make-app-handler []
   (rr/ring-handler
-   (rr/router ["/chat" chat-handler])
+   (rr/router ["/chat" (make-chat-handler)])
    (rr/routes
     (rr/create-resource-handler {:path "/"})
     (rr/create-default-handler))))
 
 (defn run-server [options]
-  (adapter/run-jetty app-handler options))
+  (adapter/run-jetty (make-app-handler) options))

@@ -1,13 +1,16 @@
 {:deps
- {ring/ring-core {:mvn/version "1.12.1"}
+ {org.clojure/clojure {:mvn/version "1.10.1"}
+  org.clojure/clojurescript {:mvn/version "1.10.773"}
+  org.clojure/tools.analyzer {:mvn/version "1.2.0"}
+  ring/ring-core {:mvn/version "1.12.1"}
   ring/ring-jetty-adapter {:mvn/version "1.12.1"}
   ring/ring-defaults {:mvn/version "0.5.0"}
-  org.ring-clojure/ring-websocket-async {:mvn/version "0.1.0"}
+  org.ring-clojure/ring-websocket-async {:mvn/version "0.2.0"}
   org.ring-clojure/ring-websocket-transit {:mvn/version "0.1.0"}
   org.slf4j/slf4j-simple {:mvn/version "2.0.13"}
   metosin/reitit {:mvn/version "0.7.0"}
   thheller/shadow-cljs {:mvn/version "2.11.23"}
-  org.clojure/tools.analyzer {:mvn/version "1.2.0"}}
+  haslett/haslett {:mvn/version "0.2.0"}}
  :paths ["resources" "src" "target/assets"]
  :aliases
  {:cljs   {:main-opts ["-m" "shadow.cljs.devtools.cli"]}
