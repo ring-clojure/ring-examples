@@ -2,7 +2,8 @@
   (:require [clojure.core.async :as a :refer [<! >!]]
             [reitit.ring :as rr]
             [ring.adapter.jetty :as adapter]
-            [ring.websocket.async :as wsa]))
+            [ring.websocket.async :as wsa]
+            [ring.middleware.websocket-keepalive :as wska]))
 
 (defn make-chat-handler []
   (let [writer  (a/chan)
@@ -17,7 +18,8 @@
    (rr/router ["/chat" (make-chat-handler)])
    (rr/routes
     (rr/create-resource-handler {:path "/"})
-    (rr/create-default-handler))))
+    (rr/create-default-handler))
+   {:middleware [[wska/wrap-websocket-keepalive]]}))
 
 (defn run-server [options]
   (adapter/run-jetty (make-app-handler) options))
