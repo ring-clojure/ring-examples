@@ -1,10 +1,10 @@
 (ns ring.example.chat.server
-  (:require [clojure.core.async :as a :refer [<! >!]]
+  (:require [clojure.core.async :as a]
             [reitit.ring :as rr]
             [ring.adapter.jetty :as adapter]
             [ring.websocket.async :as wsa]
             [ring.websocket.transit :as wst]
-            [ring.middleware.websocket-keepalive :as wska]))
+            [ring.websocket.keepalive :as wska]))
 
 (defn make-chat-handler []
   (let [writer  (a/chan)
