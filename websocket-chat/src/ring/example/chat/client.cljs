@@ -1,5 +1,6 @@
 (ns ring.example.chat.client
   (:require [cljs.core.async :as a :refer [<! >! go go-loop]]
+            [clojure.string :as str]
             [haslett.client :as ws]
             [haslett.format :as wsfmt]))
 
@@ -10,7 +11,8 @@
   (.insertAdjacentHTML element "beforeend" html))
 
 (defn- message-html [{:keys [author message]}]
-  (str "<li><span class='author'>" author "</span>"
+  (str "<li><span class='author'>"
+       (if (str/blank? author) "Anonymous" author) "</span>"
        "<span class='message'>" message "</span></li>"))
 
 (defn- send-message [stream]
