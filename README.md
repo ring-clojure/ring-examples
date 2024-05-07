@@ -8,4 +8,4 @@ create idiomatic web applications.
 
 ## Example projects
 
-- WebSocket Chat
+- [WebSocket Chat](https://github.com/ring-clojure/ring-examples/tree/master/websocket-chat)
