@@ -8,4 +8,5 @@ create idiomatic web applications.
 
 ## Example projects
 
+- [Hello World](https://github.com/ring-clojure/ring-examples/tree/master/hello-world)
 - [WebSocket Chat](https://github.com/ring-clojure/ring-examples/tree/master/websocket-chat)

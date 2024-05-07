@@ -1,0 +1,9 @@
+{:deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        ring/ring-core {:mvn/version "1.12.1"}
+        ring/ring-jetty-adapter {:mvn/version "1.12.1"}
+        ring/ring-defaults {:mvn/version "0.5.0"}
+        org.slf4j/slf4j-simple {:mvn/version "2.0.13"}
+        metosin/reitit {:mvn/version "0.7.0"}}
+ :paths ["resources" "src" "target/assets"]
+ :aliases {:server {:exec-fn ring.example.hello.server/run-server
+                    :exec-args {:port 8080}}}}
