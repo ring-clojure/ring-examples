@@ -28,8 +28,7 @@
   (go-loop []
     (when-some [message (<! (:in stream))]
       (append-html message-log (message-html message))
-      (recur))
-    (js/console.log (pr-str (<! (:close-status stream))))))
+      (recur))))
 
 (defn- websocket-url [path]
   (let [loc   (.-location js/window)
