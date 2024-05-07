@@ -1,4 +1,4 @@
-# Ring WebSocket Chat Example
+# Ring Hello World Example
 
 This is a basic 'Hello World' example project in [Ring][].
 
