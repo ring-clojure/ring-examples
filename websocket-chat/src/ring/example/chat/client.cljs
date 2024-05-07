@@ -40,11 +40,13 @@
   (ws/connect (websocket-url path) {:format wsfmt/transit}))
 
 (defn- on-load [_]
-  (go (let [stream (<! (websocket-connect "/chat"))]
+  (go (let [stream  (<! (websocket-connect "/chat"))
+            message (query "#message")]
         (start-listener stream (query "#message-log"))
         (.addEventListener (query "#send") "click"
                            (fn [_] (send-message stream)))
-        (.addEventListener (query "#message") "keyup"
+        (.focus message)
+        (.addEventListener message "keyup"
                            (fn [e]
                              (when (= (.-code e) "Enter")
                                (send-message stream)))))))
