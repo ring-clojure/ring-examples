@@ -32,7 +32,7 @@
 
 (defn- websocket-url [path]
   (let [loc   (.-location js/window)
-        proto (if (= "https" (.-protocol loc)) "wss" "ws")]
+        proto (if (= "https:" (.-protocol loc)) "wss" "ws")]
     (str proto "://" (.-host loc) path)))
 
 (defn- websocket-connect [path]
